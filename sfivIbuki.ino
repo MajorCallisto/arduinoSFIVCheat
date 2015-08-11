@@ -1,3 +1,13 @@
+//SFIV Cheat Combo Button Board
+//Christopher Lewis
+//Aug 11, 2015
+//11 Arduino Micro pins are mapped to 11 special moves for the character Ibuki
+//in Street Fighter IV.
+
+//Define variables using the constant #define keyword
+//so we can use the switch statement
+//later on. Switch requires that a constant is used (like an actual number)
+//but our code is more readable if names are used
 #define FORWARD  1
 #define BACKWARD -1
 #define S_LOW 0
@@ -9,7 +19,7 @@
 void setup() {
   Keyboard.begin();
   for (int pin = 12; pin >1; pin--){
-    pinMode(pin, INPUT_PULLUP);
+    pinMode(pin, INPUT_PULLUP);//Set all pins as input_pullup so they don't float
   }
   //12 Kasumi Gake
   //11 Tsumuji
@@ -220,6 +230,7 @@ void circleHalf(int dir){
     delay(keyDelay);
   }
 }
+//e.g. Back, and then a quarter circle back
 void circleShoryuken(int dir){
   if (dir == FORWARD){
     Keyboard.press(KEY_RIGHT_ARROW);
